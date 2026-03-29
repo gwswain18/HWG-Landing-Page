@@ -12,10 +12,10 @@ export default function FAQ() {
     <section id="faq" className="py-20 lg:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 bg-[#c9a870]/10 text-[#c9a870] text-sm font-semibold rounded-full mb-4">
+          <span className="inline-block px-4 py-1.5 bg-[#c4962e]/10 text-[#c4962e] text-sm font-semibold rounded-full mb-4">
             {t.faq.sectionLabel}
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1a2332] mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1b2d4f] mb-4">
             {t.faq.title}
           </h2>
         </div>
@@ -27,7 +27,7 @@ export default function FAQ() {
               <div
                 key={i}
                 className={`border rounded-xl transition-all ${
-                  isOpen ? 'border-[#c9a870]/30 bg-[#c9a870]/5 shadow-sm' : 'border-gray-200'
+                  isOpen ? 'border-[#c4962e]/30 bg-[#c4962e]/5 shadow-sm' : 'border-gray-200'
                 }`}
               >
                 <button
@@ -35,9 +35,9 @@ export default function FAQ() {
                   className="w-full flex items-center justify-between px-6 py-5 text-left"
                   aria-expanded={isOpen}
                 >
-                  <span className="font-semibold text-[#1a2332] pr-4">{item.q}</span>
+                  <span className="font-semibold text-[#1b2d4f] pr-4">{item.q}</span>
                   <ChevronDown
-                    className={`w-5 h-5 text-[#c9a870] flex-shrink-0 transition-transform ${
+                    className={`w-5 h-5 text-[#c4962e] flex-shrink-0 transition-transform ${
                       isOpen ? 'rotate-180' : ''
                     }`}
                   />

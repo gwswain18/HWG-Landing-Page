@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { Menu, X, Shield, Phone, Globe } from 'lucide-react';
+import Image from 'next/image';
+import { Menu, X, Phone, Globe } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const navLinks = [
@@ -18,17 +19,21 @@ export default function Header() {
   const { language, t, toggleLanguage } = useLanguage();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#1a2332]/95 backdrop-blur-md border-b border-white/10">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#1b2d4f]/95 backdrop-blur-md border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#c9a870] to-[#b8944d] flex items-center justify-center shadow-lg shadow-[#c9a870]/20 group-hover:shadow-[#c9a870]/40 transition-shadow">
-              <Shield className="w-5 h-5 text-[#1a2332]" />
-            </div>
+            <Image
+              src="/thwg-logo.jpeg"
+              alt="The Health & Wealth Group"
+              width={48}
+              height={48}
+              className="rounded-lg shadow-lg shadow-[#c4962e]/20 group-hover:shadow-[#c4962e]/40 transition-shadow"
+            />
             <div className="hidden sm:block">
               <p className="text-white font-bold text-sm leading-tight">The Health &amp; Wealth</p>
-              <p className="text-[#c9a870] text-xs font-medium tracking-wider uppercase">Group</p>
+              <p className="text-[#c4962e] text-xs font-medium tracking-wider uppercase">Group</p>
             </div>
           </a>
 
@@ -38,7 +43,7 @@ export default function Header() {
               <a
                 key={link.key}
                 href={link.href}
-                className="px-3 py-2 text-sm text-gray-300 hover:text-[#c9a870] transition-colors rounded-lg hover:bg-white/5"
+                className="px-3 py-2 text-sm text-gray-300 hover:text-[#c4962e] transition-colors rounded-lg hover:bg-white/5"
               >
                 {t.nav[link.key as keyof typeof t.nav]}
               </a>
@@ -50,7 +55,7 @@ export default function Header() {
             {/* Language toggle */}
             <button
               onClick={toggleLanguage}
-              className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-gray-300 hover:text-[#c9a870] border border-white/10 rounded-full hover:border-[#c9a870]/30 transition-all"
+              className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-gray-300 hover:text-[#c4962e] border border-white/10 rounded-full hover:border-[#c4962e]/30 transition-all"
               aria-label="Toggle language"
             >
               <Globe className="w-3.5 h-3.5" />
@@ -60,7 +65,7 @@ export default function Header() {
             {/* Phone */}
             <a
               href="tel:+14046808890"
-              className="hidden md:flex items-center gap-1.5 text-sm text-gray-300 hover:text-[#c9a870] transition-colors"
+              className="hidden md:flex items-center gap-1.5 text-sm text-gray-300 hover:text-[#c4962e] transition-colors"
             >
               <Phone className="w-4 h-4" />
               <span>(404) 680-8890</span>
@@ -69,7 +74,7 @@ export default function Header() {
             {/* CTA */}
             <a
               href="#booking"
-              className="hidden sm:inline-flex items-center px-4 py-2 text-sm font-semibold text-[#1a2332] bg-gradient-to-r from-[#c9a870] to-[#b8944d] rounded-full hover:shadow-lg hover:shadow-[#c9a870]/25 transition-all hover:scale-105"
+              className="hidden sm:inline-flex items-center px-4 py-2 text-sm font-semibold text-[#1b2d4f] bg-gradient-to-r from-[#c4962e] to-[#a87d25] rounded-full hover:shadow-lg hover:shadow-[#c4962e]/25 transition-all hover:scale-105"
             >
               {t.nav.bookCall}
             </a>
@@ -88,14 +93,14 @@ export default function Header() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="lg:hidden bg-[#1a2332] border-t border-white/10">
+        <div className="lg:hidden bg-[#1b2d4f] border-t border-white/10">
           <div className="px-4 py-4 space-y-1">
             {navLinks.map((link) => (
               <a
                 key={link.key}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="block px-4 py-3 text-gray-300 hover:text-[#c9a870] hover:bg-white/5 rounded-lg transition-colors"
+                className="block px-4 py-3 text-gray-300 hover:text-[#c4962e] hover:bg-white/5 rounded-lg transition-colors"
               >
                 {t.nav[link.key as keyof typeof t.nav]}
               </a>
@@ -103,7 +108,7 @@ export default function Header() {
             <div className="pt-3 border-t border-white/10 space-y-3">
               <a
                 href="tel:+14046808890"
-                className="flex items-center gap-2 px-4 py-2 text-[#c9a870]"
+                className="flex items-center gap-2 px-4 py-2 text-[#c4962e]"
               >
                 <Phone className="w-4 h-4" />
                 (404) 680-8890
@@ -111,7 +116,7 @@ export default function Header() {
               <a
                 href="#booking"
                 onClick={() => setMobileOpen(false)}
-                className="block text-center px-4 py-3 font-semibold text-[#1a2332] bg-gradient-to-r from-[#c9a870] to-[#b8944d] rounded-full"
+                className="block text-center px-4 py-3 font-semibold text-[#1b2d4f] bg-gradient-to-r from-[#c4962e] to-[#a87d25] rounded-full"
               >
                 {t.nav.bookCall}
               </a>

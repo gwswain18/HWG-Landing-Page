@@ -40,10 +40,10 @@ export default function ContactForm() {
     <section id="contact" className="py-20 lg:py-28 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 bg-[#c9a870]/10 text-[#c9a870] text-sm font-semibold rounded-full mb-4">
+          <span className="inline-block px-4 py-1.5 bg-[#c4962e]/10 text-[#c4962e] text-sm font-semibold rounded-full mb-4">
             {t.contact.sectionLabel}
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1a2332] mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1b2d4f] mb-4">
             {t.contact.title}
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">{t.contact.subtitle}</p>
@@ -55,7 +55,7 @@ export default function ContactForm() {
               <div className="w-16 h-16 mx-auto rounded-full bg-green-100 flex items-center justify-center mb-4">
                 <CheckCircle className="w-8 h-8 text-green-600" />
               </div>
-              <h3 className="text-xl font-bold text-[#1a2332] mb-2">{t.contact.success}</h3>
+              <h3 className="text-xl font-bold text-[#1b2d4f] mb-2">{t.contact.success}</h3>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-lg p-8 sm:p-10 space-y-6">
@@ -69,23 +69,23 @@ export default function ContactForm() {
               {/* Name & Email */}
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-semibold text-[#1a2332] mb-2">{t.contact.name}</label>
+                  <label className="block text-sm font-semibold text-[#1b2d4f] mb-2">{t.contact.name}</label>
                   <input
                     type="text"
                     required
                     value={form.name}
                     onChange={(e) => update('name', e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#c9a870] focus:border-transparent transition-all text-[#1a2332]"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#c4962e] focus:border-transparent transition-all text-[#1b2d4f]"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-[#1a2332] mb-2">{t.contact.email}</label>
+                  <label className="block text-sm font-semibold text-[#1b2d4f] mb-2">{t.contact.email}</label>
                   <input
                     type="email"
                     required
                     value={form.email}
                     onChange={(e) => update('email', e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#c9a870] focus:border-transparent transition-all text-[#1a2332]"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#c4962e] focus:border-transparent transition-all text-[#1b2d4f]"
                   />
                 </div>
               </div>
@@ -93,22 +93,22 @@ export default function ContactForm() {
               {/* Phone & Age */}
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-semibold text-[#1a2332] mb-2">{t.contact.phone}</label>
+                  <label className="block text-sm font-semibold text-[#1b2d4f] mb-2">{t.contact.phone}</label>
                   <input
                     type="tel"
                     required
                     value={form.phone}
                     onChange={(e) => update('phone', e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#c9a870] focus:border-transparent transition-all text-[#1a2332]"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#c4962e] focus:border-transparent transition-all text-[#1b2d4f]"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-[#1a2332] mb-2">{t.contact.ageRange}</label>
+                  <label className="block text-sm font-semibold text-[#1b2d4f] mb-2">{t.contact.ageRange}</label>
                   <select
                     required
                     value={form.ageRange}
                     onChange={(e) => update('ageRange', e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#c9a870] focus:border-transparent transition-all text-[#1a2332] bg-white"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#c4962e] focus:border-transparent transition-all text-[#1b2d4f] bg-white"
                   >
                     <option value="" disabled></option>
                     {t.contact.ageRanges.map((r) => (
@@ -120,12 +120,12 @@ export default function ContactForm() {
 
               {/* Coverage Interest */}
               <div>
-                <label className="block text-sm font-semibold text-[#1a2332] mb-2">{t.contact.coverageInterest}</label>
+                <label className="block text-sm font-semibold text-[#1b2d4f] mb-2">{t.contact.coverageInterest}</label>
                 <select
                   required
                   value={form.coverageInterest}
                   onChange={(e) => update('coverageInterest', e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#c9a870] focus:border-transparent transition-all text-[#1a2332] bg-white"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#c4962e] focus:border-transparent transition-all text-[#1b2d4f] bg-white"
                 >
                   <option value="" disabled></option>
                   {t.contact.coverageOptions.map((o) => (
@@ -136,13 +136,13 @@ export default function ContactForm() {
 
               {/* Message */}
               <div>
-                <label className="block text-sm font-semibold text-[#1a2332] mb-2">{t.contact.message}</label>
+                <label className="block text-sm font-semibold text-[#1b2d4f] mb-2">{t.contact.message}</label>
                 <textarea
                   rows={4}
                   value={form.message}
                   onChange={(e) => update('message', e.target.value)}
                   placeholder={t.contact.messagePlaceholder}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#c9a870] focus:border-transparent transition-all resize-none text-[#1a2332]"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#c4962e] focus:border-transparent transition-all resize-none text-[#1b2d4f]"
                 />
               </div>
 
@@ -150,7 +150,7 @@ export default function ContactForm() {
               <button
                 type="submit"
                 disabled={status === 'submitting'}
-                className="w-full flex items-center justify-center gap-2 px-8 py-4 text-lg font-semibold text-[#1a2332] bg-gradient-to-r from-[#c9a870] to-[#b8944d] rounded-full hover:shadow-xl hover:shadow-[#c9a870]/25 transition-all hover:scale-[1.02] disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
+                className="w-full flex items-center justify-center gap-2 px-8 py-4 text-lg font-semibold text-[#1b2d4f] bg-gradient-to-r from-[#c4962e] to-[#a87d25] rounded-full hover:shadow-xl hover:shadow-[#c4962e]/25 transition-all hover:scale-[1.02] disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
               >
                 {status === 'submitting' ? (
                   t.contact.submitting

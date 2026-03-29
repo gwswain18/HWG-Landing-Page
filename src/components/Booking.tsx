@@ -10,10 +10,10 @@ export default function Booking() {
   const { t } = useLanguage();
 
   return (
-    <section id="booking" className="py-20 lg:py-28 bg-[#1a2332]">
+    <section id="booking" className="py-20 lg:py-28 bg-[#1b2d4f]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <span className="inline-block px-4 py-1.5 bg-[#c9a870]/10 text-[#c9a870] text-sm font-semibold rounded-full mb-4">
+          <span className="inline-block px-4 py-1.5 bg-[#c4962e]/10 text-[#c4962e] text-sm font-semibold rounded-full mb-4">
             {t.booking.sectionLabel}
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
@@ -39,10 +39,10 @@ export default function Booking() {
               Future: Can be swapped with GoHighLevel or HubSpot booking widget.
             */}
             <div className="p-12 text-center">
-              <div className="w-20 h-20 mx-auto rounded-full bg-[#c9a870]/10 flex items-center justify-center mb-6">
-                <Calendar className="w-10 h-10 text-[#c9a870]" />
+              <div className="w-20 h-20 mx-auto rounded-full bg-[#c4962e]/10 flex items-center justify-center mb-6">
+                <Calendar className="w-10 h-10 text-[#c4962e]" />
               </div>
-              <h3 className="text-2xl font-bold text-[#1a2332] mb-3">Schedule Your Free Consultation</h3>
+              <h3 className="text-2xl font-bold text-[#1b2d4f] mb-3">Schedule Your Free Consultation</h3>
               <p className="text-gray-500 mb-8 max-w-md mx-auto">
                 Choose a time that works for you. 15-minute call, no obligation.
               </p>
@@ -50,7 +50,7 @@ export default function Booking() {
                 href={CALENDLY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-4 text-lg font-semibold text-[#1a2332] bg-gradient-to-r from-[#c9a870] to-[#b8944d] rounded-full hover:shadow-xl hover:shadow-[#c9a870]/25 transition-all hover:scale-105"
+                className="inline-flex items-center gap-2 px-8 py-4 text-lg font-semibold text-[#1b2d4f] bg-gradient-to-r from-[#c4962e] to-[#a87d25] rounded-full hover:shadow-xl hover:shadow-[#c4962e]/25 transition-all hover:scale-105"
               >
                 <Calendar className="w-5 h-5" />
                 Open Scheduling Page
@@ -63,7 +63,7 @@ export default function Booking() {
             <p className="text-gray-400 mb-3">{t.booking.fallback}</p>
             <a
               href="tel:+14046808890"
-              className="inline-flex items-center gap-2 text-[#c9a870] hover:text-[#e8d5b0] font-semibold transition-colors"
+              className="inline-flex items-center gap-2 text-[#c4962e] hover:text-[#dbb44a] font-semibold transition-colors"
             >
               <Phone className="w-5 h-5" />
               (404) 680-8890

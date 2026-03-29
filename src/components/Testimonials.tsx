@@ -25,10 +25,10 @@ export default function Testimonials() {
     <section id="testimonials" className="py-20 lg:py-28 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 bg-[#c9a870]/10 text-[#c9a870] text-sm font-semibold rounded-full mb-4">
+          <span className="inline-block px-4 py-1.5 bg-[#c4962e]/10 text-[#c4962e] text-sm font-semibold rounded-full mb-4">
             {t.testimonials.sectionLabel}
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1a2332] mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1b2d4f] mb-4">
             {t.testimonials.title}
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">{t.testimonials.subtitle}</p>
@@ -37,13 +37,13 @@ export default function Testimonials() {
         {/* Testimonial carousel */}
         <div className="max-w-3xl mx-auto mb-20">
           <div className="relative bg-white rounded-2xl shadow-xl p-8 sm:p-12">
-            <Quote className="absolute top-6 left-6 w-10 h-10 text-[#c9a870]/20" />
+            <Quote className="absolute top-6 left-6 w-10 h-10 text-[#c4962e]/20" />
 
             <div className="text-center">
               {/* Stars */}
               <div className="flex justify-center gap-1 mb-6">
                 {Array.from({ length: items[current].rating }).map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-[#c9a870] text-[#c9a870]" />
+                  <Star key={i} className="w-5 h-5 fill-[#c4962e] text-[#c4962e]" />
                 ))}
               </div>
 
@@ -54,7 +54,7 @@ export default function Testimonials() {
 
               {/* Author */}
               <div>
-                <p className="font-bold text-[#1a2332]">{items[current].name}</p>
+                <p className="font-bold text-[#1b2d4f]">{items[current].name}</p>
                 <p className="text-sm text-gray-500">{items[current].location}</p>
               </div>
             </div>
@@ -63,7 +63,7 @@ export default function Testimonials() {
             <div className="flex justify-center gap-4 mt-8">
               <button
                 onClick={prev}
-                className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-[#c9a870] hover:border-[#c9a870] hover:text-white text-gray-600 transition-all"
+                className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-[#c4962e] hover:border-[#c4962e] hover:text-white text-gray-600 transition-all"
                 aria-label="Previous testimonial"
               >
                 <ChevronLeft className="w-5 h-5" />
@@ -74,7 +74,7 @@ export default function Testimonials() {
                     key={i}
                     onClick={() => setCurrent(i)}
                     className={`w-2.5 h-2.5 rounded-full transition-all ${
-                      i === current ? 'bg-[#c9a870] w-6' : 'bg-gray-300'
+                      i === current ? 'bg-[#c4962e] w-6' : 'bg-gray-300'
                     }`}
                     aria-label={`Go to testimonial ${i + 1}`}
                   />
@@ -82,7 +82,7 @@ export default function Testimonials() {
               </div>
               <button
                 onClick={next}
-                className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-[#c9a870] hover:border-[#c9a870] hover:text-white text-gray-600 transition-all"
+                className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-[#c4962e] hover:border-[#c4962e] hover:text-white text-gray-600 transition-all"
                 aria-label="Next testimonial"
               >
                 <ChevronRight className="w-5 h-5" />
@@ -100,7 +100,7 @@ export default function Testimonials() {
             {carrierLogos.map((name) => (
               <div
                 key={name}
-                className="px-6 py-3 bg-white rounded-lg shadow-sm border border-gray-100 text-gray-400 font-semibold text-sm hover:text-[#1a2332] hover:border-[#c9a870]/20 transition-colors"
+                className="px-6 py-3 bg-white rounded-lg shadow-sm border border-gray-100 text-gray-400 font-semibold text-sm hover:text-[#1b2d4f] hover:border-[#c4962e]/20 transition-colors"
               >
                 {name}
               </div>
