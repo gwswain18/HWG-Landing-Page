@@ -4,14 +4,22 @@ import { useState } from 'react';
 import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-const carrierLogos = [
-  'Mutual of Omaha',
-  'Transamerica',
-  'Nationwide',
-  'Prudential',
-  'AIG',
-  'Lincoln Financial',
+const carriers = [
+  { name: 'Transamerica', domain: 'transamerica.com' },
+  { name: 'Mutual of Omaha', domain: 'mutualofomaha.com' },
+  { name: 'American Amicable', domain: 'american-amicable.com' },
+  { name: 'Aetna', domain: 'aetna.com' },
+  { name: 'Aflac', domain: 'aflac.com' },
+  { name: 'Corebridge', domain: 'corebridgefinancial.com' },
+  { name: 'Americo', domain: 'americo.com' },
+  { name: 'SBLI', domain: 'sbli.com' },
+  { name: 'Royal Neighbors', domain: 'royalneighbors.org' },
+  { name: 'CVS', domain: 'cvshealth.com' },
+  { name: 'CICA', domain: 'citizensinc.com' },
 ];
+
+const faviconUrl = (domain: string) =>
+  `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
 
 export default function Testimonials() {
   const { t } = useLanguage();
@@ -96,13 +104,22 @@ export default function Testimonials() {
           <p className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-8">
             {t.testimonials.trustedBy}
           </p>
-          <div className="flex flex-wrap justify-center gap-8 sm:gap-12">
-            {carrierLogos.map((name) => (
+          <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4 max-w-5xl mx-auto">
+            {carriers.map((carrier) => (
               <div
-                key={name}
-                className="px-6 py-3 bg-white rounded-lg shadow-sm border border-gray-100 text-gray-400 font-semibold text-sm hover:text-[#1b2d4f] hover:border-[#c4962e]/20 transition-colors"
+                key={carrier.name}
+                className="group flex flex-col items-center justify-center gap-2 px-3 py-4 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-[#c4962e]/20 transition-all"
               >
-                {name}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={faviconUrl(carrier.domain)}
+                  alt={carrier.name}
+                  className="w-9 h-9 rounded-lg object-contain grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all"
+                  loading="lazy"
+                />
+                <span className="text-gray-400 group-hover:text-[#1b2d4f] text-xs font-medium transition-colors text-center leading-tight">
+                  {carrier.name}
+                </span>
               </div>
             ))}
           </div>
