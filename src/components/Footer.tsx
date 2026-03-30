@@ -101,4 +101,14 @@ export default function Footer() {
         </div>
 
         {/* Disclaimer + copyright */}
-        <div cla
+        <div className="mt-12 pt-8 border-t border-white/5">
+          <p className="text-gray-500 text-xs leading-relaxed mb-4">{t.footer.disclaimer}</p>
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-2">
+            <p className="text-gray-500 text-xs">{t.footer.copyright}</p>
+            <p className="text-gray-500 text-xs font-mono">{t.footer.npn}</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}

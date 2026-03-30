@@ -258,4 +258,8 @@ export default function QuoteCalculator() {
               </div>
             </div>
           </div>
-    
+        </div>
+      </div>
+    </section>
+  );
+}

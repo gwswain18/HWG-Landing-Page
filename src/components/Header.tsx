@@ -119,4 +119,13 @@ export default function Header() {
                 href="#booking"
                 onClick={() => setMobileOpen(false)}
                 className="block text-center px-4 py-3 font-semibold text-[#1b2d4f] bg-gradient-to-r from-[#c4962e] to-[#a87d25] rounded-full"
-       
+              >
+                {t.nav.bookCall}
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+}
