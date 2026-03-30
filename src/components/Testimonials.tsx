@@ -5,17 +5,17 @@ import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const carriers = [
-  { name: 'Transamerica', file: 'transamerica.png' },
-  { name: 'Mutual of Omaha', file: 'mutual-of-omaha.svg' },
-  { name: 'American Amicable', file: 'american-amicable.png' },
-  { name: 'Aetna', file: 'aetna.svg' },
-  { name: 'Aflac', file: 'aflac.png' },
-  { name: 'Corebridge', file: 'corebridge.svg' },
-  { name: 'Americo', file: 'americo.png' },
-  { name: 'SBLI', file: 'sbli.webp' },
-  { name: 'Royal Neighbors', file: 'royal-neighbors.svg' },
-  { name: 'CVS Health', file: 'cvs.svg' },
-  { name: 'CICA', file: 'cica.svg' },
+  { name: 'Transamerica', file: 'transamerica.png', style: 'max-h-8 max-w-[140px]' },
+  { name: 'Mutual of Omaha', file: 'mutual-of-omaha.svg', style: 'max-h-9 max-w-[150px]' },
+  { name: 'American Amicable', file: 'american-amicable.png', style: 'max-h-9 max-w-[140px]' },
+  { name: 'Aetna', file: 'aetna.svg', style: 'max-h-7 max-w-[120px]' },
+  { name: 'Aflac', file: 'aflac.png', style: 'max-h-8 max-w-[100px]' },
+  { name: 'Corebridge', file: 'corebridge.svg', style: 'max-h-9 max-w-[140px]' },
+  { name: 'Americo', file: 'americo.png', style: 'max-h-7 max-w-[120px]' },
+  { name: 'SBLI', file: 'sbli.webp', style: 'max-h-7 max-w-[110px]' },
+  { name: 'Royal Neighbors', file: 'royal-neighbors.svg', style: 'max-h-9 max-w-[130px]' },
+  { name: 'CVS Health', file: 'cvs.svg', style: 'max-h-7 max-w-[130px]' },
+  { name: 'CICA', file: 'cica.svg', style: 'max-h-8 max-w-[130px]' },
 ];
 
 export default function Testimonials() {
@@ -106,13 +106,13 @@ export default function Testimonials() {
             {carriers.map((carrier) => (
               <div
                 key={carrier.name}
-                className="group flex items-center justify-center h-12 px-2 opacity-70 hover:opacity-100 transition-all duration-300"
+                className="group flex items-center justify-center h-10 px-3 opacity-70 hover:opacity-100 transition-all duration-300"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={`/carriers/${carrier.file}`}
                   alt={carrier.name}
-                  className="max-h-10 max-w-[130px] object-contain"
+                  className={`${carrier.style} object-contain`}
                   loading="lazy"
                   title={carrier.name}
                 />
