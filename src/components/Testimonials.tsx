@@ -5,17 +5,17 @@ import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const carriers = [
-  { name: 'Transamerica', file: 'transamerica.png', style: 'max-h-8 max-w-[140px]' },
-  { name: 'Mutual of Omaha', file: 'mutual-of-omaha.svg', style: 'max-h-9 max-w-[150px]' },
-  { name: 'American Amicable', file: 'american-amicable.png', style: 'max-h-9 max-w-[140px]' },
+  { name: 'Transamerica', file: 'transamerica.png', style: 'max-h-8 max-w-[130px]' },
+  { name: 'Mutual of Omaha', file: 'mutual-of-omaha.svg', style: 'max-h-9 max-w-[140px]' },
+  { name: 'American Amicable', file: 'american-amicable.png', style: 'max-h-9 max-w-[130px]' },
   { name: 'Aetna', file: 'aetna.svg', style: 'max-h-7 max-w-[120px]' },
-  { name: 'Aflac', file: 'aflac.png', style: 'max-h-8 max-w-[100px]' },
-  { name: 'Corebridge', file: 'corebridge.svg', style: 'max-h-9 max-w-[140px]' },
-  { name: 'Americo', file: 'americo.png', style: 'max-h-7 max-w-[120px]' },
-  { name: 'SBLI', file: 'sbli.webp', style: 'max-h-7 max-w-[110px]' },
-  { name: 'Royal Neighbors', file: 'royal-neighbors.svg', style: 'max-h-9 max-w-[130px]' },
-  { name: 'CVS Health', file: 'cvs.svg', style: 'max-h-7 max-w-[130px]' },
-  { name: 'CICA', file: 'cica.svg', style: 'max-h-8 max-w-[130px]' },
+  { name: 'Aflac', file: 'aflac.png', style: 'max-h-8 max-w-[90px]' },
+  { name: 'Corebridge', file: 'corebridge.svg', style: 'max-h-9 max-w-[130px]' },
+  { name: 'Americo', file: 'americo.png', style: 'max-h-7 max-w-[110px]' },
+  { name: 'SBLI', file: 'sbli.webp', style: 'max-h-7 max-w-[100px]' },
+  { name: 'Royal Neighbors', file: 'royal-neighbors.svg', style: 'max-h-10 max-w-[40px]' },
+  { name: 'CVS Health', file: 'cvs.svg', style: 'max-h-7 max-w-[120px]' },
+  { name: 'CICA', file: 'cica.svg', style: 'max-h-8 max-w-[120px]' },
 ];
 
 export default function Testimonials() {
@@ -102,7 +102,7 @@ export default function Testimonials() {
           <p className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-8">
             {t.testimonials.trustedBy}
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-x-10 gap-y-6 max-w-5xl mx-auto">
+          <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-6 max-w-6xl mx-auto">
             {carriers.map((carrier) => (
               <div
                 key={carrier.name}
