@@ -23,18 +23,4 @@ export default function Home() {
         <InsuranceTypes />
         {/* 4. Premium Calculator */}
         <QuoteCalculator />
-        {/* 5. Testimonials + Carrier Logos */}
-        <Testimonials />
-        {/* 6. Myths vs. Facts */}
-        <Myths />
-        {/* 7. FAQ */}
-        <FAQ />
-        {/* 8. Contact Form */}
-        <ContactForm />
-        {/* 9. Booking Section */}
-        <Booking />
-      </main>
-      <Footer />
-    </>
-  );
-}
+       
