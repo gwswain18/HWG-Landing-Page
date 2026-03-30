@@ -5,22 +5,18 @@ import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const carriers = [
-  { name: 'Transamerica', domain: 'transamerica.com' },
-  { name: 'Mutual of Omaha', domain: 'mutualofomaha.com' },
-  { name: 'American Amicable', domain: 'american-amicable.com' },
-  { name: 'Aetna', domain: 'aetna.com' },
-  { name: 'Aflac', domain: 'aflac.com' },
-  { name: 'Corebridge', domain: 'corebridgefinancial.com' },
-  { name: 'Americo', domain: 'americo.com' },
-  { name: 'SBLI', domain: 'sbli.com' },
-  { name: 'Royal Neighbors', domain: 'royalneighbors.org' },
-  { name: 'CVS Health', domain: 'cvshealth.com' },
-  { name: 'CICA', domain: 'citizensinc.com' },
+  'Transamerica',
+  'Mutual of Omaha',
+  'American Amicable',
+  'Aetna',
+  'Aflac',
+  'Corebridge',
+  'Americo',
+  'SBLI',
+  'Royal Neighbors',
+  'CVS Health',
+  'CICA',
 ];
-
-// Clearbit logo API for crisp, high-res logos
-const logoUrl = (domain: string) =>
-  `https://logo.clearbit.com/${domain}`;
 
 export default function Testimonials() {
   const { t } = useLanguage();
@@ -101,40 +97,22 @@ export default function Testimonials() {
           </div>
         </div>
 
-        {/* Trusted carrier logos — Clearbit for crisp rendering */}
+        {/* Trusted carrier logos — clean typographic style */}
         <div className="text-center">
           <p className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-8">
             {t.testimonials.trustedBy}
           </p>
-          <div className="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto">
-            {carriers.map((carrier) => (
-              <div
-                key={carrier.name}
-                className="group flex items-center justify-center w-24 h-16 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-[#c4962e]/20 transition-all p-3"
-                title={carrier.name}
+          <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 max-w-4xl mx-auto">
+            {carriers.map((name) => (
+              <span
+                key={name}
+                className="text-gray-400 hover:text-[#1b2d4f] font-semibold text-sm sm:text-base tracking-wide transition-colors duration-200 cursor-default select-none whitespace-nowrap"
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={logoUrl(carrier.domain)}
-                  alt={carrier.name}
-                  className="max-w-full max-h-full object-contain opacity-50 group-hover:opacity-100 transition-opacity"
-                  loading="lazy"
-                  onError={(e) => {
-                    // Fallback to clean text if logo fails to load
-                    const target = e.currentTarget;
-                    target.style.display = 'none';
-                    const parent = target.parentElement;
-                    if (parent && !parent.querySelector('span')) {
-                      const span = document.createElement('span');
-                      span.className = 'text-xs font-semibold text-gray-400 group-hover:text-[#1b2d4f] transition-colors text-center leading-tight';
-                      span.textContent = carrier.name;
-                      parent.appendChild(span);
-                    }
-                  }}
-                />
-              </div>
+                {name}
+              </span>
             ))}
           </div>
+          <div className="mt-6 w-full max-w-3xl mx-auto border-t border-gray-200" />
         </div>
       </div>
     </section>
