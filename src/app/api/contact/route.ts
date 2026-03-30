@@ -1,23 +1,18 @@
 import { NextResponse } from 'next/server';
 
-// Email notification via Resend (https://resend.com)
-// Set RESEND_API_KEY in your .env.local to enable
-// Alternatively, swap this for EmailJS, SendGrid, or any email service
-
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, email, phone, ageRange, coverageInterest, message } = body;
+    const { name, email, phone, coverageInterest, message } = body;
 
     // Validate required fields
-    if (!name || !email || !phone || !ageRange || !coverageInterest) {
+    if (!name || !email || !phone || !coverageInterest) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
     const apiKey = process.env.RESEND_API_KEY;
 
     if (apiKey) {
-      // Send email via Resend
       await fetch('https://api.resend.com/emails', {
         method: 'POST',
         headers: {
@@ -34,17 +29,15 @@ export async function POST(request: Request) {
               <tr><td style="padding: 8px; font-weight: bold;">Name:</td><td style="padding: 8px;">${name}</td></tr>
               <tr><td style="padding: 8px; font-weight: bold;">Email:</td><td style="padding: 8px;">${email}</td></tr>
               <tr><td style="padding: 8px; font-weight: bold;">Phone:</td><td style="padding: 8px;">${phone}</td></tr>
-              <tr><td style="padding: 8px; font-weight: bold;">Age Range:</td><td style="padding: 8px;">${ageRange}</td></tr>
-              <tr><td style="padding: 8px; font-weight: bold;">Coverage Interest:</td><td style="padding: 8px;">${coverageInterest}</td></tr>
-              <tr><td style="padding: 8px; font-weight: bold;">Message:</td><td style="padding: 8px;">${message || 'N/A'}</td></tr>
+              <tr><td style="padding: 8px; font-weight: bold;">Looking For:</td><td style="padding: 8px;">${coverageInterest}</td></tr>
+              <tr><td style="padding: 8px; font-weight: bold;">Notes:</td><td style="padding: 8px;">${message || 'N/A'}</td></tr>
             </table>
             <p style="color: #999; font-size: 12px; margin-top: 20px;">Sent from HWG Landing Page</p>
           `,
         }),
       });
     } else {
-      // Fallback: log the lead (replace with your preferred method)
-      console.log('📩 New lead (no RESEND_API_KEY set):', { name, email, phone, ageRange, coverageInterest, message });
+      console.log('New lead (no RESEND_API_KEY set):', { name, email, phone, coverageInterest, message });
     }
 
     return NextResponse.json({ success: true });

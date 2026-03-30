@@ -96,6 +96,16 @@ export default function InsuranceTypes() {
             </div>
           ))}
         </div>
+
+        {/* CTA break */}
+        <div className="text-center mt-16">
+          <a
+            href="#contact"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-semibold text-[#1b2d4f] bg-gradient-to-r from-[#c4962e] to-[#a87d25] rounded-full hover:shadow-xl hover:shadow-[#c4962e]/25 transition-all hover:scale-105"
+          >
+            {t.insurance.cta}
+          </a>
+        </div>
       </div>
     </section>
   );

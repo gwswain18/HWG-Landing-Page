@@ -70,10 +70,14 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <span className="text-gray-500 text-sm cursor-default">{t.footer.blog}</span>
+                <span className="text-gray-500 text-sm cursor-default">
+                  {t.footer.blog} <span className="text-xs text-gray-600 ml-1">({t.footer.blogSoon})</span>
+                </span>
               </li>
               <li>
-                <span className="text-gray-500 text-sm cursor-default">{t.footer.portal}</span>
+                <span className="text-gray-500 text-sm cursor-default">
+                  {t.footer.portal} <span className="text-xs text-gray-600 ml-1">({t.footer.portalSoon})</span>
+                </span>
               </li>
             </ul>
           </div>
@@ -83,10 +87,14 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-4">{t.footer.legal}</h3>
             <ul className="space-y-2.5">
               <li>
-                <span className="text-gray-500 text-sm cursor-default">{t.footer.privacy}</span>
+                <span className="text-gray-500 text-sm cursor-default">
+                  {t.footer.privacy} <span className="text-xs text-gray-600 ml-1">({t.footer.privacySoon})</span>
+                </span>
               </li>
               <li>
-                <span className="text-gray-500 text-sm cursor-default">{t.footer.terms}</span>
+                <span className="text-gray-500 text-sm cursor-default">
+                  {t.footer.terms} <span className="text-xs text-gray-600 ml-1">({t.footer.termsSoon})</span>
+                </span>
               </li>
             </ul>
           </div>

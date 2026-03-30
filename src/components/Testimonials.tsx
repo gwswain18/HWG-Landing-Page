@@ -14,12 +14,13 @@ const carriers = [
   { name: 'Americo', domain: 'americo.com' },
   { name: 'SBLI', domain: 'sbli.com' },
   { name: 'Royal Neighbors', domain: 'royalneighbors.org' },
-  { name: 'CVS', domain: 'cvshealth.com' },
+  { name: 'CVS Health', domain: 'cvshealth.com' },
   { name: 'CICA', domain: 'citizensinc.com' },
 ];
 
-const faviconUrl = (domain: string) =>
-  `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
+// Clearbit logo API for crisp, high-res logos
+const logoUrl = (domain: string) =>
+  `https://logo.clearbit.com/${domain}`;
 
 export default function Testimonials() {
   const { t } = useLanguage();
@@ -43,6 +44,7 @@ export default function Testimonials() {
         </div>
 
         {/* Testimonial carousel */}
+        {/* TODO: Replace placeholder testimonials with real client testimonials */}
         <div className="max-w-3xl mx-auto mb-20">
           <div className="relative bg-white rounded-2xl shadow-xl p-8 sm:p-12">
             <Quote className="absolute top-6 left-6 w-10 h-10 text-[#c4962e]/20" />
@@ -99,27 +101,37 @@ export default function Testimonials() {
           </div>
         </div>
 
-        {/* Trusted carrier logos */}
+        {/* Trusted carrier logos — Clearbit for crisp rendering */}
         <div className="text-center">
           <p className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-8">
             {t.testimonials.trustedBy}
           </p>
-          <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4 max-w-5xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto">
             {carriers.map((carrier) => (
               <div
                 key={carrier.name}
-                className="group flex flex-col items-center justify-center gap-2 px-3 py-4 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-[#c4962e]/20 transition-all"
+                className="group flex items-center justify-center w-24 h-16 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-[#c4962e]/20 transition-all p-3"
+                title={carrier.name}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={faviconUrl(carrier.domain)}
+                  src={logoUrl(carrier.domain)}
                   alt={carrier.name}
-                  className="w-9 h-9 rounded-lg object-contain grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all"
+                  className="max-w-full max-h-full object-contain opacity-50 group-hover:opacity-100 transition-opacity"
                   loading="lazy"
+                  onError={(e) => {
+                    // Fallback to clean text if logo fails to load
+                    const target = e.currentTarget;
+                    target.style.display = 'none';
+                    const parent = target.parentElement;
+                    if (parent && !parent.querySelector('span')) {
+                      const span = document.createElement('span');
+                      span.className = 'text-xs font-semibold text-gray-400 group-hover:text-[#1b2d4f] transition-colors text-center leading-tight';
+                      span.textContent = carrier.name;
+                      parent.appendChild(span);
+                    }
+                  }}
                 />
-                <span className="text-gray-400 group-hover:text-[#1b2d4f] text-xs font-medium transition-colors text-center leading-tight">
-                  {carrier.name}
-                </span>
               </div>
             ))}
           </div>

@@ -16,7 +16,7 @@ export default function Hero() {
       <div className="absolute top-1/4 -left-32 w-96 h-96 bg-[#c4962e]/10 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-[#c4962e]/5 rounded-full blur-3xl" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
         <div className="max-w-3xl">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#c4962e]/10 border border-[#c4962e]/20 rounded-full mb-8">
@@ -33,12 +33,12 @@ export default function Hero() {
           </h1>
 
           {/* Subtitle */}
-          <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mb-10 leading-relaxed">
+          <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mb-10 leading-relaxed">
             {t.hero.subtitle}
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 mb-16">
+          <div className="flex flex-col sm:flex-row gap-4 mb-10">
             <a
               href="#contact"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-semibold text-[#1b2d4f] bg-gradient-to-r from-[#c4962e] to-[#a87d25] rounded-full hover:shadow-xl hover:shadow-[#c4962e]/25 transition-all hover:scale-105 group"
@@ -54,8 +54,18 @@ export default function Hero() {
             </a>
           </div>
 
+          {/* Trust strip */}
+          <div className="flex flex-wrap gap-x-6 gap-y-2 mb-10">
+            {t.hero.trustItems.map((item) => (
+              <div key={item} className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-[#c4962e]" />
+                <span className="text-sm text-gray-300 font-medium">{item}</span>
+              </div>
+            ))}
+          </div>
+
           {/* Stats */}
-          <div className="grid grid-cols-3 gap-8 max-w-lg">
+          <div className="grid grid-cols-3 gap-8 max-w-lg pt-8 border-t border-white/10">
             {[
               { value: t.hero.stat1, label: t.hero.stat1Label },
               { value: t.hero.stat2, label: t.hero.stat2Label },
@@ -66,37 +76,6 @@ export default function Hero() {
                 <p className="text-sm text-gray-400 mt-1">{stat.label}</p>
               </div>
             ))}
-          </div>
-
-          {/* Trust badges — inline row below stats */}
-          <div className="mt-12 flex flex-col sm:flex-row gap-4 max-w-2xl">
-          <div className="flex items-center gap-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl px-5 py-3">
-            <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0">
-              <CheckCircle className="w-5 h-5 text-green-400" />
-            </div>
-            <div>
-              <p className="text-white font-semibold text-sm">Licensed &amp; Insured</p>
-              <p className="text-gray-400 text-xs">Georgia Dept. of Insurance</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl px-5 py-3">
-            <div className="w-10 h-10 rounded-full bg-[#c4962e]/20 flex items-center justify-center flex-shrink-0">
-              <Shield className="w-5 h-5 text-[#c4962e]" />
-            </div>
-            <div>
-              <p className="text-white font-semibold text-sm">A+ Rated Carriers</p>
-              <p className="text-gray-400 text-xs">Top-tier partners</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl px-5 py-3">
-            <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0">
-              <span className="text-base">🇺🇸🇲🇽</span>
-            </div>
-            <div>
-              <p className="text-white font-semibold text-sm">Bilingual Service</p>
-              <p className="text-gray-400 text-xs">English &amp; Spanish</p>
-            </div>
-          </div>
           </div>
         </div>
       </div>

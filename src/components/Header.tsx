@@ -52,24 +52,26 @@ export default function Header() {
 
           {/* Right side */}
           <div className="flex items-center gap-3">
-            {/* Language toggle */}
+            {/* Language toggle — prominent */}
             <button
               onClick={toggleLanguage}
-              className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-gray-300 hover:text-[#c4962e] border border-white/10 rounded-full hover:border-[#c4962e]/30 transition-all"
+              className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-semibold text-white bg-white/10 border border-white/20 rounded-full hover:bg-[#c4962e]/20 hover:border-[#c4962e]/40 transition-all"
               aria-label="Toggle language"
             >
-              <Globe className="w-3.5 h-3.5" />
-              {language === 'en' ? 'ES' : 'EN'}
+              <Globe className="w-4 h-4" />
+              {language === 'en' ? 'Español' : 'English'}
             </button>
 
-            {/* Phone */}
-            <a
-              href="tel:+14046808890"
-              className="hidden md:flex items-center gap-1.5 text-sm text-gray-300 hover:text-[#c4962e] transition-colors"
-            >
-              <Phone className="w-4 h-4" />
-              <span>(404) 680-8890</span>
-            </a>
+            {/* Phone with Hablamos badge */}
+            <div className="hidden md:flex items-center gap-1.5">
+              <a
+                href="tel:+14046808890"
+                className="flex items-center gap-1.5 text-sm text-gray-300 hover:text-[#c4962e] transition-colors"
+              >
+                <Phone className="w-4 h-4" />
+                <span>(404) 680-8890</span>
+              </a>
+            </div>
 
             {/* CTA */}
             <a

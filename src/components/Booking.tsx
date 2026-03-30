@@ -3,7 +3,7 @@
 import { Calendar, Phone } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-// Replace with your actual Calendly URL
+// TODO: Verify this Calendly URL is active. If 404, update with correct URL.
 const CALENDLY_URL = 'https://calendly.com/carolyn-thehealthandwealthgroup';
 
 export default function Booking() {
@@ -22,52 +22,40 @@ export default function Booking() {
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">{t.booking.subtitle}</p>
         </div>
 
-        {/* Calendly embed placeholder */}
         <div className="max-w-3xl mx-auto">
           <div className="bg-white rounded-2xl overflow-hidden shadow-2xl">
-            {/*
-              To embed Calendly, replace this placeholder with:
-              <iframe
-                src={CALENDLY_URL}
-                width="100%"
-                height="700"
-                frameBorder="0"
-                title="Schedule a consultation"
-              />
-
-              Or use the Calendly inline widget script for a more polished experience.
-              Future: Can be swapped with GoHighLevel or HubSpot booking widget.
-            */}
             <div className="p-12 text-center">
               <div className="w-20 h-20 mx-auto rounded-full bg-[#c4962e]/10 flex items-center justify-center mb-6">
                 <Calendar className="w-10 h-10 text-[#c4962e]" />
               </div>
-              <h3 className="text-2xl font-bold text-[#1b2d4f] mb-3">Schedule Your Free Consultation</h3>
+              <h3 className="text-2xl font-bold text-[#1b2d4f] mb-3">{t.booking.title}</h3>
               <p className="text-gray-500 mb-8 max-w-md mx-auto">
-                Choose a time that works for you. 15-minute call, no obligation.
+                {t.booking.subtitle}
               </p>
+
+              {/* Primary: Calendly link */}
               <a
                 href={CALENDLY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-4 text-lg font-semibold text-[#1b2d4f] bg-gradient-to-r from-[#c4962e] to-[#a87d25] rounded-full hover:shadow-xl hover:shadow-[#c4962e]/25 transition-all hover:scale-105"
+                className="inline-flex items-center gap-2 px-8 py-4 text-lg font-semibold text-[#1b2d4f] bg-gradient-to-r from-[#c4962e] to-[#a87d25] rounded-full hover:shadow-xl hover:shadow-[#c4962e]/25 transition-all hover:scale-105 mb-4"
               >
                 <Calendar className="w-5 h-5" />
-                Open Scheduling Page
+                {t.booking.cta}
               </a>
-            </div>
-          </div>
 
-          {/* Fallback CTA */}
-          <div className="text-center mt-8">
-            <p className="text-gray-400 mb-3">{t.booking.fallback}</p>
-            <a
-              href="tel:+14046808890"
-              className="inline-flex items-center gap-2 text-[#c4962e] hover:text-[#dbb44a] font-semibold transition-colors"
-            >
-              <Phone className="w-5 h-5" />
-              (404) 680-8890
-            </a>
+              {/* Prominent phone fallback */}
+              <div className="pt-6 border-t border-gray-100 mt-6">
+                <p className="text-gray-400 text-sm mb-3">{t.booking.fallback}</p>
+                <a
+                  href="tel:+14046808890"
+                  className="inline-flex items-center gap-2 text-xl font-bold text-[#1b2d4f] hover:text-[#c4962e] transition-colors"
+                >
+                  <Phone className="w-6 h-6" />
+                  (404) 680-8890
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -41,7 +41,7 @@ export default function QuoteCalculator() {
     'substandard': t.calculator.substandard,
   };
 
-  const tobaccoLabel = smoker === 'non-smoker' ? t.calculator.no : t.calculator.yes;
+  const tobaccoLabel = smoker === 'non-smoker' ? t.calculator.tobaccoNo : t.calculator.tobaccoYes;
 
   return (
     <section id="calculator" className="py-20 lg:py-28 bg-white">
@@ -234,7 +234,7 @@ export default function QuoteCalculator() {
                 {/* Based-on label */}
                 <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/5 border border-white/10 rounded-full mb-5">
                   <span className="text-xs text-gray-300">
-                    {t.calculator.basedOn} {healthClassLabel[healthClass]}, {tobaccoLabel} {t.calculator.rates}
+                    {t.calculator.basedOn} {healthClassLabel[healthClass]} {t.calculator.healthClassLabel}, {tobaccoLabel} {t.calculator.rates}
                   </span>
                 </div>
 

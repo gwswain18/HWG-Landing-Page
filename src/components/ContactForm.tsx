@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, type FormEvent } from 'react';
-import { Send, Lock, CheckCircle, AlertCircle } from 'lucide-react';
+import { Send, Lock, CheckCircle, AlertCircle, Globe } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function ContactForm() {
@@ -11,7 +11,6 @@ export default function ContactForm() {
     name: '',
     email: '',
     phone: '',
-    ageRange: '',
     coverageInterest: '',
     message: '',
   });
@@ -30,7 +29,7 @@ export default function ContactForm() {
       });
       if (!res.ok) throw new Error('Failed');
       setStatus('success');
-      setForm({ name: '', email: '', phone: '', ageRange: '', coverageInterest: '', message: '' });
+      setForm({ name: '', email: '', phone: '', coverageInterest: '', message: '' });
     } catch {
       setStatus('error');
     }
@@ -49,7 +48,7 @@ export default function ContactForm() {
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">{t.contact.subtitle}</p>
         </div>
 
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-xl mx-auto">
           {status === 'success' ? (
             <div className="text-center py-12 bg-white rounded-2xl shadow-lg">
               <div className="w-16 h-16 mx-auto rounded-full bg-green-100 flex items-center justify-center mb-4">
@@ -58,7 +57,7 @@ export default function ContactForm() {
               <h3 className="text-xl font-bold text-[#1b2d4f] mb-2">{t.contact.success}</h3>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-lg p-8 sm:p-10 space-y-6">
+            <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-lg p-8 sm:p-10 space-y-5">
               {status === 'error' && (
                 <div className="flex items-center gap-3 p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm">
                   <AlertCircle className="w-5 h-5 flex-shrink-0" />
@@ -66,31 +65,19 @@ export default function ContactForm() {
                 </div>
               )}
 
-              {/* Name & Email */}
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-semibold text-[#1b2d4f] mb-2">{t.contact.name}</label>
-                  <input
-                    type="text"
-                    required
-                    value={form.name}
-                    onChange={(e) => update('name', e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#c4962e] focus:border-transparent transition-all text-[#1b2d4f]"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold text-[#1b2d4f] mb-2">{t.contact.email}</label>
-                  <input
-                    type="email"
-                    required
-                    value={form.email}
-                    onChange={(e) => update('email', e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#c4962e] focus:border-transparent transition-all text-[#1b2d4f]"
-                  />
-                </div>
+              {/* Name */}
+              <div>
+                <label className="block text-sm font-semibold text-[#1b2d4f] mb-2">{t.contact.name}</label>
+                <input
+                  type="text"
+                  required
+                  value={form.name}
+                  onChange={(e) => update('name', e.target.value)}
+                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#c4962e] focus:border-transparent transition-all text-[#1b2d4f]"
+                />
               </div>
 
-              {/* Phone & Age */}
+              {/* Phone & Email */}
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-semibold text-[#1b2d4f] mb-2">{t.contact.phone}</label>
@@ -103,18 +90,14 @@ export default function ContactForm() {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-[#1b2d4f] mb-2">{t.contact.ageRange}</label>
-                  <select
+                  <label className="block text-sm font-semibold text-[#1b2d4f] mb-2">{t.contact.email}</label>
+                  <input
+                    type="email"
                     required
-                    value={form.ageRange}
-                    onChange={(e) => update('ageRange', e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#c4962e] focus:border-transparent transition-all text-[#1b2d4f] bg-white"
-                  >
-                    <option value="" disabled></option>
-                    {t.contact.ageRanges.map((r) => (
-                      <option key={r} value={r}>{r}</option>
-                    ))}
-                  </select>
+                    value={form.email}
+                    onChange={(e) => update('email', e.target.value)}
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#c4962e] focus:border-transparent transition-all text-[#1b2d4f]"
+                  />
                 </div>
               </div>
 
@@ -134,11 +117,11 @@ export default function ContactForm() {
                 </select>
               </div>
 
-              {/* Message */}
+              {/* Message — compact */}
               <div>
                 <label className="block text-sm font-semibold text-[#1b2d4f] mb-2">{t.contact.message}</label>
                 <textarea
-                  rows={4}
+                  rows={2}
                   value={form.message}
                   onChange={(e) => update('message', e.target.value)}
                   placeholder={t.contact.messagePlaceholder}
@@ -162,11 +145,17 @@ export default function ContactForm() {
                 )}
               </button>
 
-              {/* Privacy note */}
-              <p className="text-center text-xs text-gray-400 flex items-center justify-center gap-1.5">
-                <Lock className="w-3.5 h-3.5" />
-                {t.contact.privacy}
-              </p>
+              {/* Privacy + bilingual note */}
+              <div className="space-y-1.5">
+                <p className="text-center text-xs text-gray-400 flex items-center justify-center gap-1.5">
+                  <Lock className="w-3.5 h-3.5" />
+                  {t.contact.privacy}
+                </p>
+                <p className="text-center text-xs text-gray-400 flex items-center justify-center gap-1.5">
+                  <Globe className="w-3.5 h-3.5" />
+                  {t.contact.bilingual}
+                </p>
+              </div>
             </form>
           )}
         </div>

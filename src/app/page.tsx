@@ -15,14 +15,23 @@ export default function Home() {
     <>
       <Header />
       <main>
+        {/* 1. Hero */}
         <Hero />
+        {/* 2. Meet Carolyn */}
         <About />
+        {/* 3. Coverage Options + CTA break */}
         <InsuranceTypes />
+        {/* 4. Premium Calculator */}
         <QuoteCalculator />
+        {/* 5. Testimonials + Carrier Logos */}
         <Testimonials />
+        {/* 6. Myths vs. Facts */}
         <Myths />
+        {/* 7. FAQ */}
         <FAQ />
+        {/* 8. Contact Form */}
         <ContactForm />
+        {/* 9. Booking Section */}
         <Booking />
       </main>
       <Footer />
