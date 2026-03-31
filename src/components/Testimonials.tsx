@@ -13,7 +13,7 @@ const carriers = [
   { name: 'Corebridge', file: 'corebridge.svg', style: 'max-h-9 max-w-[130px]' },
   { name: 'Americo', file: 'americo.png', style: 'max-h-7 max-w-[110px]' },
   { name: 'SBLI', file: 'sbli.webp', style: 'max-h-7 max-w-[100px]' },
-  { name: 'Royal Neighbors', file: 'royal-neighbors.svg', style: 'max-h-10 max-w-[40px]' },
+  { name: 'Royal Neighbors', file: 'royal-neighbors.svg', style: 'max-h-12 max-w-[140px]' },
   { name: 'CVS Health', file: 'cvs.svg', style: 'max-h-7 max-w-[120px]' },
   { name: 'CICA', file: 'cica.svg', style: 'max-h-8 max-w-[120px]' },
 ];
