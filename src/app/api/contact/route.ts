@@ -27,7 +27,7 @@ export async function POST(request: Request) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'HWG Website <onboarding@resend.dev>',
+        from: 'HWG Website <leads@updates.healthandwealthgroup.com>',
         to: ['carolyn@thehealthandwealthgroup.com', 'carolyn@healthandwealthgroup.com', 'shankums@garrisonsconsulting.com'],
         subject: `New Lead: ${name} — ${coverageInterest}`,
         html: `
