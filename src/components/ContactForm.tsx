@@ -7,6 +7,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 export default function ContactForm() {
   const { t } = useLanguage();
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [errorMsg, setErrorMsg] = useState('');
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -27,7 +28,11 @@ export default function ContactForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       });
-      if (!res.ok) throw new Error('Failed');
+      const data = await res.json();
+      if (!res.ok) {
+        setErrorMsg(data?.detail || data?.error || 'Something went wrong');
+        throw new Error('Failed');
+      }
       setStatus('success');
       setForm({ name: '', email: '', phone: '', coverageInterest: '', message: '' });
     } catch {
@@ -61,7 +66,7 @@ export default function ContactForm() {
               {status === 'error' && (
                 <div className="flex items-center gap-3 p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm">
                   <AlertCircle className="w-5 h-5 flex-shrink-0" />
-                  {t.contact.error}
+                  <span>{t.contact.error}{errorMsg ? ` (${errorMsg})` : ''}</span>
                 </div>
               )}
 
